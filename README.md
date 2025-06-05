@@ -47,10 +47,37 @@ Používá se v navigaci, síťových přenosech, logistice apod.
 <strong>Negativní hrany a jejich vliv</strong>
 Negativní hrana je hrana v ohodnoceném grafu, jejíž váha (hodnota) je záporná — například −5. V některých reálných problémech může znamenat zisk, slevu nebo obrácený tok.
 
-Algoritmy:
+Přehled algoritmů pro nejkratší cestu
 
-Dijkstra: nefunguje správně s negativními hranami (předpokládá kladné váhy).
+---
 
-Bellman-Ford: funguje i s negativními hranami a umí detekovat negativní cykly.
+### a) Dijkstrův algoritmus
 
-Negativní cyklus: pokud existuje smyčka se zápornou celkovou hodnotou, neexistuje konečná nejkratší cesta (lze ji neustále zkracovat).
+- **Princip:**
+  - Greedy přístup – v každém kroku vybírá vrchol s nejmenší známou vzdáleností.
+  - Využívá prioritní frontu (např. min-heap).
+- **Omezení:**
+  - Nepracuje správně s negativními hranami.
+
+---
+
+### b) Bellman-Fordův algoritmus
+
+- **Princip:**
+  - Opakuje relaxaci všech hran až `V - 1` krát.
+  - Každá iterace postupně vylepšuje odhad vzdálenosti.
+- **Výhody:**
+  - Funguje i s negativními hranami.
+  - Umí detekovat záporné cykly.
+
+---
+
+### c) Floyd-Warshallův algoritmus
+
+- **Princip:**
+  - Používá dynamické programování.
+  - Pro každou dvojici vrcholů zjišťuje, zda existuje kratší cesta přes třetí vrchol.
+- **Vhodné pro:**
+  - Požadavek na všechny nejkratší cesty mezi všemi páry vrcholů.
+
+---
